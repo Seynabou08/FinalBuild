@@ -1,0 +1,22 @@
+Seynabou: 
+- Look up I/O again
+
+Implement role cards:
+Done: Quarantine Specialist, Operations Expert, Researcher, Scientist, Medic (first 2 effects)
+
+Incomplete: Dispatcher (half done)??
+
+
+• You may Discover a Cure at any Research Station — the color of its
+city does not need to match the disease you are curing.
+
+• On your turn, you may take a card from another player, if you are both
+in the city that matches the card you are taking.
+
+• On your turn, you may take any City card from the Researcher (only), if you are both in the same city.
+
+• Your hand limit applies immediately after getting a card from another player.
+
+
+Last: (when everything else is done)
+design patterns
