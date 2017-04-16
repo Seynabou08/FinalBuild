@@ -10,28 +10,25 @@ private:
 
 public:
 	ifstream myfile;
-	/*
-	Director();
-	~Director();
-	*/
+	
 	void setBuilder(AbstractBuilder *builder) { this->builder = builder; }
 
-	void ConstructMap()
+	void ConstructMap(ifstream* myfile)
 	{
-		builder->Load(&myfile);
+		builder->Load(myfile);
 	}
-	void ConstructPlayer(Player* player)
+	void ConstructPlayer(ifstream* myfile)
 	{
-		builder->Load(&myfile);     //, player);
+		builder->Load(myfile);  
 	}
 
 	void SaveMap()
 	{
 		builder->Save();
 	}
-	void SavePlayer(Player* player)
+	void SavePlayer()
 	{
-		builder->Save();        // player);
+		builder->Save();  
 	}
 
 };

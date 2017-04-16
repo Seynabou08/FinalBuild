@@ -19,9 +19,9 @@ int main(int argc, char* argv[])
 	Map newMap = Map(48);
 	newMap.startGame();
 
-	//string fileName = "save.txt";
-	//ifstream myfile;
-	//myfile.open(fileName.data());
+	string fileName = "save.txt";
+	ifstream myfile;
+	myfile.open(fileName.data());
 
 	Director director1;
 	Director director2;
@@ -121,8 +121,7 @@ int main(int argc, char* argv[])
 	vector<Card*> discardPile;
 
 	//Generating event card to add to player deck
-	string eventNames[] = { "Airlift", "One Quiet Night", "Resilient population",
-		"Government Grant", "Forcast" };
+	string eventNames[] = { "Airlift", "One Quiet Night", "Resilient population", "Government Grant", "Forcast" };
 
 	EventCard* eventCard = new EventCard();
 	for (int i = 0; i < 5; i++)
@@ -136,8 +135,7 @@ int main(int argc, char* argv[])
 	// GENERATING ROLE DECK
 	vector<Role*> roleDeck;
 
-	string roleNames[] = { "Contingency Planner", "Dispatcher", "Medic",
-		"Operation Expert", "Quarantine Specialist", "Researcher", "Scientist" };
+	string roleNames[] = { "Contingency Planner", "Dispatcher", "Medic", "Operation Expert", "Quarantine Specialist", "Researcher", "Scientist" };
 		
 	// I PUT THESE HERE SO I CAN TEST THE ROLES EASILY. PLEASE DONT REMOVE =3 
 	//string roleNames[] = { "Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner"};
@@ -667,16 +665,13 @@ int main(int argc, char* argv[])
 				}
 			}
 
-
-
-
+			
 			////////////END TURN / DRAW 2 PLAYER CARDS////////////
 			players.at(i).concludeTurn(playerDeck, newMap);
 
 
 			director2.setBuilder(new PlayerSaver(&players.at(i)));
-			director1.SavePlayer( &players.at(i));
-
+			director1.SavePlayer();
 			director2.SaveMap();
 
 

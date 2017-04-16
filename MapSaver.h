@@ -8,12 +8,10 @@ private:
 	Map* map;
 
 public:
-	//Map* map;
 
 	MapSaver(Map* map) {
 		this->map = map;
 	}
-	//~MapSaver();
 
 	void Load(ifstream* myfile)
 	{
