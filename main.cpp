@@ -23,16 +23,16 @@ int main(int argc, char* argv[])
 	ifstream myfile;
 	myfile.open(fileName.data());
 
-	Director director1;
-	Director director2;
+	//	Director director1;
+	//	Director director2;
 
-	director1.setBuilder(new MapSaver(&newMap));
-	
+		//director1.setBuilder(new MapSaver(&newMap));
 
-	//displaying the map
-	//newMap.showMap();
 
-	//Place the research station in Atlanta.
+		//displaying the map
+		//newMap.showMap();
+
+		//Place the research station in Atlanta.
 	City atlanta = newMap.getCity(7);
 	atlanta.setResearchCenter(true);
 
@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
 	vector<Role*> roleDeck;
 
 	string roleNames[] = { "Contingency Planner", "Dispatcher", "Medic", "Operation Expert", "Quarantine Specialist", "Researcher", "Scientist" };
-		
+
 	// I PUT THESE HERE SO I CAN TEST THE ROLES EASILY. PLEASE DONT REMOVE =3 
 	//string roleNames[] = { "Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner"};
 	//string roleNames[] = { "Dispatcher","Dispatcher","Dispatcher","Dispatcher","Dispatcher","Dispatcher","Dispatcher" };
@@ -243,7 +243,7 @@ int main(int argc, char* argv[])
 				cout << "7. Share Knowledge" << endl;
 				cout << "8. Discover a Cure" << endl;
 				cout << "9. Play event card" << endl;
-				if (players.at(i).getRole() == "Dispatcher" || players.at(i).getRole() == "Operation Expert"|| 
+				if (players.at(i).getRole() == "Dispatcher" || players.at(i).getRole() == "Operation Expert" ||
 					(players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getType() == "Event Card"))
 					cout << "0. Role" << endl;
 
@@ -261,15 +261,15 @@ int main(int argc, char* argv[])
 						cout << "Which player's pawn do you want to move?";
 						cin >> choice;
 						while (choice > playerNum || choice <= 0) {
-							cout << "Please enter a number between 1 and " << playerNum <<"." << endl;
+							cout << "Please enter a number between 1 and " << playerNum << "." << endl;
 							cin >> choice;
 						}
+						choice--;
 
 					}
-					cout << choice;
-					newMap.showCity(players.at(choice-1).getLocation());
-					players.at(choice-1).move(newMap);
-					players.at(choice-1).increaseAction();
+					newMap.showCity(players.at(choice).getLocation());
+					players.at(choice).move(newMap);
+					players.at(choice).increaseAction();
 					players.at(i).subtractAction();
 
 					break;
@@ -285,9 +285,10 @@ int main(int argc, char* argv[])
 						while (choice > playerNum || choice <= 0) {
 							cout << "Please enter a number between 1 and " << playerNum << "." << endl;
 							cin >> choice;
+						choice--;
 						}
 					}
-
+					
 					players.at(i).displayHand();
 
 					if (players.at(i).getHandSize() == 0)
@@ -303,15 +304,15 @@ int main(int argc, char* argv[])
 						cin >> cardInt;
 					}
 
-					players.at(choice-1).flight(players.at(i).getHand()[cardInt]->getId());
-					players.at(choice - 1).increaseAction();
+					players.at(choice).flight(players.at(i).getHand()[cardInt]->getId());
+					players.at(choice).increaseAction();
 					players.at(i).subtractAction();
 					players.at(i).discard(cardInt);
 					break;
 				}
 				case '3':	//Charter Flight: Discard the City card that matches the city you are in to move to any city.
 				{
-					
+
 					int choice = i;
 
 					if (players.at(i).getRole() == "Dispatcher")
@@ -319,11 +320,11 @@ int main(int argc, char* argv[])
 						cout << "Which player's pawn do you want to move?";
 						cin >> choice;
 						while (choice > playerNum || choice <= 0) {
-							cout << "Please enter a number between 1 and " << playerNum <<"." << endl;
+							cout << "Please enter a number between 1 and " << playerNum << "." << endl;
 							cin >> choice;
 						}
-
-					}				
+						choice--;
+					}
 
 					//check for matching card
 					bool hasMatchingCard = false;
@@ -346,8 +347,8 @@ int main(int argc, char* argv[])
 
 						int cityID;
 						cin >> cityID;
-						players.at(choice - 1).flight(cityID);
-						players.at(choice - 1).increaseAction();
+						players.at(choice).flight(cityID);
+						players.at(choice).increaseAction();
 						players.at(i).subtractAction();
 						players.at(i).discard(matchingCardIndex);
 					}
@@ -359,7 +360,7 @@ int main(int argc, char* argv[])
 				}
 				case '4': //Shuttle Flight	Move from a city with a research station to any other city that has a research station.
 				{
-					
+
 					int choice = i;
 
 
@@ -378,6 +379,7 @@ int main(int argc, char* argv[])
 								cout << "Please enter a number between 1 and " << playerNum << "." << endl;
 								cin >> choice;
 							}
+							choice--;
 						}
 
 						for (int j = 0; j < 47; j++)
@@ -406,8 +408,8 @@ int main(int argc, char* argv[])
 							}
 
 							if (isValidCity) {
-								players.at(choice - 1).flight(newLocation);
-								players.at(choice - 1).increaseAction();
+								players.at(choice).flight(newLocation);
+								players.at(choice).increaseAction();
 								players.at(i).subtractAction();
 								break;
 							}
@@ -493,7 +495,7 @@ int main(int argc, char* argv[])
 						if (players.at(i).getRole() == "Contingency Planner")
 							players.at(i).removeEvent();
 
-						else 
+						else
 							players.at(i).discard(cardId);
 
 						break;
@@ -508,10 +510,10 @@ int main(int argc, char* argv[])
 						cout << "Which card do you want to remove from the game?" << endl;
 						cin >> discard;
 
-						if (players.at(i).getRole() == "Contingency Planner") 
+						if (players.at(i).getRole() == "Contingency Planner")
 							players.at(i).removeEvent();
 
-						else 
+						else
 							players.at(i).discard(cardId);
 
 						break;
@@ -527,7 +529,7 @@ int main(int argc, char* argv[])
 						players.at(i).buildStation(&newMap);
 						players.at(i).increaseAction();
 
-						if (players.at(i).getRole() == "Contingency Planner") 
+						if (players.at(i).getRole() == "Contingency Planner")
 							players.at(i).removeEvent();
 
 						else
@@ -566,7 +568,7 @@ int main(int argc, char* argv[])
 								cout << temp.at(k).getCityName() << endl;
 							}
 
-							if (players.at(i).getRole() == "Contingency Planner") 
+							if (players.at(i).getRole() == "Contingency Planner")
 								players.at(i).removeEvent();
 
 							else
@@ -598,18 +600,19 @@ int main(int argc, char* argv[])
 							cout << "Please enter a number between 1 and " << playerNum << "." << endl;
 							cin >> choice;
 						}
+						choice--;
 
-						cout << "Which city will you move it to ?"<< endl;
+						cout << "Which city will you move it to ?" << endl;
 						for (int k = 0; k < playerNum; k++)
 						{
-							if (k != choice-1) {
+							if (k != choice ) {
 								newLoc = newMap.accessCity(players.at(k).getLocation());
 								cout << newLoc->index << " : " << newLoc->getName() << endl;
 							}
 						}
 
-						players.at(choice - 1).move(newMap);
-						players.at(choice - 1).increaseAction();
+						players.at(choice).move(newMap);
+						players.at(choice).increaseAction();
 						players.at(i).subtractAction();
 
 						break;
@@ -621,8 +624,8 @@ int main(int argc, char* argv[])
 
 						for (int j = 0; j < discardPile.size(); j++)
 						{
-							if(discardPile[j]->getType()=="Event Card")
-							cout << "Card at index " << j << ": " << discardPile[j]->getName() << endl;
+							if (discardPile[j]->getType() == "Event Card")
+								cout << "Card at index " << j << ": " << discardPile[j]->getName() << endl;
 						}
 
 						cout << "Which event card do you want to add to your role?" << endl;
@@ -665,21 +668,21 @@ int main(int argc, char* argv[])
 				}
 			}
 
-			
+
 			////////////END TURN / DRAW 2 PLAYER CARDS////////////
 			players.at(i).concludeTurn(playerDeck, newMap);
 
 
-			director2.setBuilder(new PlayerSaver(&players.at(i)));
-			director1.SavePlayer();
-			director2.SaveMap();
+			//director2.setBuilder(new PlayerSaver(&players.at(i)));
+			//director1.SavePlayer();
+			//director2.SaveMap();
 
 
 
 
 			/////////////INFECT CITIES///////////////
 			isQuietNight = false;
-			if (players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getName() == "One Quiet Night") 
+			if (players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getName() == "One Quiet Night")
 			{
 				isQuietNight = true;
 				players.at(i).removeEvent();
@@ -688,11 +691,11 @@ int main(int argc, char* argv[])
 			else for (int j = 0; j < players.at(i).getHandSize(); j++) {
 				if (players.at(i).getHand()[j]->getType() == "Event Card" && players.at(i).getHand()[j]->getName() == "One Quiet Night") {
 					isQuietNight = true;
-						players.at(i).discard(j);
+					players.at(i).discard(j);
 				}
 			}
 
-			
+
 
 			if (!isQuietNight) {
 				cout << "------------------INFECTION TURN------------------" << endl;
