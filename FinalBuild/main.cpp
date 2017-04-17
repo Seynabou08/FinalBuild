@@ -175,7 +175,7 @@ int main(int argc, char* argv[])
 	//GameStatisticsObserver gameStatsView = GameStatisticsObserver(&gameStatsOb);
 	//GameStatisticsObserver gameStatsView = GameStatisticsObserver(&gameStatsOb, new InfectionStatsObserver(&gameStatsOb));	//same as above line but with decorator
 	GameStatisticsObserver gameStatsView = GameStatisticsObserver(&gameStatsOb, new InfectionStatsObserver(&gameStatsOb, new PercentageObserver(&gameStatsOb)));	//same as above line but with 2 decorator
-
+	ActionEnvelope playerMoves = ActionEnvelope();
 
 	bool gameover = false;
 	bool isQuietNight;
