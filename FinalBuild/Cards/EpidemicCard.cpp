@@ -1,5 +1,4 @@
 #include "EpidemicCard.h"
-#include "Map.h"
 
 
 EpidemicCard::EpidemicCard() :Card(){

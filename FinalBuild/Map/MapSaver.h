@@ -1,17 +1,14 @@
 #pragma once
-#include "AbstractBuilder.h"
+#include "../AbstractBuilder.h"
 #include "Map.h"
 
 class MapSaver : public AbstractBuilder
 {
-private:
+public:
 	Map* map;
 
-public:
-
-	MapSaver(Map* map) {
-		this->map = map;
-	}
+	MapSaver(Map* map);
+	~MapSaver();
 
 	void Load(ifstream* myfile)
 	{

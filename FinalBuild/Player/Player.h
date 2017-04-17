@@ -1,22 +1,21 @@
-#ifndef PLAYER_H
-#define PLAYER_H
-
-#include "Card.h"
-#include "Role.h"
-#include "CityCard.h"
-#include "EventCard.h"
 #include "ReferenceCard.h"
-#include "EpidemicCard.h"
+#include "../Cards/Role.h"
+#include "../Cards/Card.h"
+#include "../Cards/CityCard.h"
+#include "../Cards/EventCard.h"
+#include "../Cards/EpidemicCard.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <sstream>
-/**#include "boost_1_63_0/boost/archive/text_oarchive.hpp"
-#include "boost_1_63_0boost/archive/text_iarchive.hpp"**/
-
 using namespace std;
 
+#ifndef PLAYER_H
+#define PLAYER_H
+
+/**#include "boost_1_63_0/boost/archive/text_oarchive.hpp"
+#include "boost_1_63_0boost/archive/text_iarchive.hpp"**/
 
 class Player
 {
@@ -57,13 +56,11 @@ public:
 	void move(Map m);
 	//void move(int d); //replace this later
 	void flight(int a);
-	void buildStation(Map* m);
-	void treatDisease(Map m);
-	void shareKnowledge(Player* target);
-	void discoverCure(Map m);
+	bool buildStation(Map* m);
+	bool treatDisease(Map m);
+	bool shareKnowledge(Player* target);
+	bool discoverCure(Map m);
 	void dispatcherAbility(vector<Player>*, Map* m, int playerIndex);
-	void useEventCard(int i, int playerNum, InfectionDeck ideck, Map newMap);
-	void contingencyPlanner(int i, int playerNum, InfectionDeck ideck, Map newMap);
 
 	//automatic mandatory actions
 	void startTurn();

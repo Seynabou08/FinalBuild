@@ -1,11 +1,12 @@
+#include <vector>
+#include "Card.h"
+#include "../Map/Map.h"
+using namespace std;
+
 #ifndef ROLE_H
 #define ROLE_H
 
 //#include <string>
-#include <vector>
-#include "Card.h"
-#include "Map.h"
-using namespace std;
 
 class Role : public Card
 {

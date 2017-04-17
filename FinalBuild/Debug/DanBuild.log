@@ -1,0 +1,12 @@
+﻿  main.cpp
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\main.cpp(95): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\main.cpp(269): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\main.cpp(237): warning C4101: 'location': unreferenced local variable
+  Strat.cpp
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\strategy\strat.cpp(159): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\strategy\strat.cpp(221): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\strategy\strat.cpp(394): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\danbuild\danbuild\strategy\strat.cpp(291): warning C4101: 'matchingCardIndex': unreferenced local variable
+  Generating Code...
+  DanBuild.vcxproj -> C:\Users\Daniel\Documents\Visual Studio 2017\Projects\DanBuild\Debug\DanBuild.exe
+  DanBuild.vcxproj -> C:\Users\Daniel\Documents\Visual Studio 2017\Projects\DanBuild\Debug\DanBuild.pdb (Partial PDB)

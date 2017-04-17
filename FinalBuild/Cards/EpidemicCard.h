@@ -1,10 +1,14 @@
-#pragma once
+
 #include "Card.h"
 #include <string>
 #include <vector>
 #include "InfectionDeck.h"
-#include "Map.h"
+#include "../Map/Map.h"
 using namespace std;
+
+#ifndef EPIDEMICCARD_H
+#define EPIDEMICCARD_H
+
 
 class EpidemicCard : public Card {
 public:
@@ -18,3 +22,4 @@ public:
 	void setEpidemic(int a);
 	void playCard(Map map); //pass the infection deck
 };
+#endif

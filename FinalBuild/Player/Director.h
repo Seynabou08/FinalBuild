@@ -1,6 +1,6 @@
 #pragma once
-#include "MapSaver.h"
-#include "PlayerSaver.h"
+#include "../Map/MapSaver.h"
+#include "../Player/PlayerSaver.h"
 #include <iostream>
 #include <fstream>
 class Director
@@ -10,25 +10,28 @@ private:
 
 public:
 	ifstream myfile;
-	
+
+	Director();
+	~Director();
+
 	void setBuilder(AbstractBuilder *builder) { this->builder = builder; }
 
-	void ConstructMap(ifstream* myfile)
+	void ConstructMap(MapSaver* mapSaver)
 	{
-		builder->Load(myfile);
+		mapSaver->Load(&myfile);
 	}
-	void ConstructPlayer(ifstream* myfile)
+	void ConstructPlayer(PlayerSaver* playerSaver, Player* player)
 	{
-		builder->Load(myfile);  
+		playerSaver->Load(&myfile, player);
 	}
 
-	void SaveMap()
+	void SaveMap(MapSaver* mapSaver)
 	{
-		builder->Save();
+		mapSaver->Save();
 	}
-	void SavePlayer()
+	void SavePlayer(PlayerSaver* playerSaver, Player* player)
 	{
-		builder->Save();  
+		playerSaver->Save(player);
 	}
 
 };

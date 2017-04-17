@@ -4,7 +4,7 @@
 //#include <string>
 #include <vector>
 #include "Card.h"
-#include "Map.h"
+#include "../Map/Map.h"
 using namespace std;
 
 class EventCard : public Card

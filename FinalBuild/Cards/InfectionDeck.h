@@ -1,5 +1,7 @@
 #pragma once
 #include "InfectionCard.h"
+#include "../Player/Player.h"
+#include "../Map/Map.h"
 #include <vector>
 using namespace std;
 

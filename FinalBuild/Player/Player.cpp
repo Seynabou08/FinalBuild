@@ -97,7 +97,7 @@ City Player::getCity()
 
 void Player::setPawn(char ch)
 {
-	switch (ch)
+	switch(ch)
 	{
 	case 'b':
 		this->pawn = BLUE;
@@ -342,7 +342,7 @@ void Player::flight(int a)
 	this->subtractAction();
 }
 
-void Player::buildStation(Map* m)
+bool Player::buildStation(Map* m)
 {
 
 	bool hasMatchingCard = false;
@@ -364,13 +364,14 @@ void Player::buildStation(Map* m)
 			this->subtractAction();
 			if (getRole() != "Operation Expert")
 				discard(matchingCardIndex);
+			return true;
 		}
 	}
-	else cout << "None of your city card match the city you are in so you can't build a research station. Choose another action." << endl;
+	return false;
 
 }
 
-void Player::treatDisease(Map m)
+bool Player::treatDisease(Map m)
 {
 	int loc = this->location;
 	City c;
@@ -397,15 +398,17 @@ void Player::treatDisease(Map m)
 		}
 		*cp = c;
 		this->subtractAction();
+		return true;
 	}
 	else
 	{
+		return false;
 		//city has no infection to remove
 	}
 	delete[] cp; //not sure if we need this or not
 }
 
-void Player::shareKnowledge(Player* tg)
+bool Player::shareKnowledge(Player* tg)
 {//TODO CHANGE SO THAT YOU CAN ONLY GIVE THE CARD CORRESPONDING TO THE CITY YOU'RE BOTH IN
 	if (this->checkAction())
 	{
@@ -426,6 +429,7 @@ void Player::shareKnowledge(Player* tg)
 				}
 				if (cardIndex == -1) {
 					cout << "The other player does not have the card for the city" << endl;
+					return false;
 				}
 				else {
 					//take card
@@ -434,6 +438,7 @@ void Player::shareKnowledge(Player* tg)
 					newHand.erase(newHand.begin() + cardIndex);         //removes card from new hand
 					tg->setHand(newHand);                            //replaces old hand of tg
 					this->subtractAction();
+					return true;
 				}
 			}
 			else if (option == 'g')
@@ -446,6 +451,7 @@ void Player::shareKnowledge(Player* tg)
 				}
 				if (cardIndex == -1) {
 					cout << "You do not have the card for the city" << endl;
+					return false;
 				}
 				else {
 					//give card
@@ -454,6 +460,7 @@ void Player::shareKnowledge(Player* tg)
 					tg->setHand(newHand);
 					(this->cards).erase((this->cards).begin() + cardIndex);
 					this->subtractAction();
+					return true;
 				}
 			}
 			else
@@ -478,6 +485,7 @@ void Player::shareKnowledge(Player* tg)
 				newHand.erase(newHand.begin() + index);         //removes card from new hand
 				tg->setHand(newHand);                            //replaces old hand of tg
 				this->subtractAction();
+				return true;
 			}
 			else if (option == 'g')
 			{
@@ -490,6 +498,7 @@ void Player::shareKnowledge(Player* tg)
 				tg->setHand(newHand);
 				(this->cards).erase((this->cards).begin() + index);
 				this->subtractAction();
+				return true;
 			}
 			else
 			{
@@ -503,9 +512,10 @@ void Player::shareKnowledge(Player* tg)
 			cout << "Sorry, this player is not on this space" << endl;
 		}
 	}
+	return false;
 }
 
-void Player::discoverCure(Map m)
+bool Player::discoverCure(Map m)
 {
 	if (m.accessCity(getLocation())->researchCenter) { //check to see if player is at research station
 		if (this->getRole() != "Scientist") {
@@ -524,7 +534,7 @@ void Player::discoverCure(Map m)
 				cardInt5 >= getHandSize()
 				) {
 				cout << "Indexes selected were out of range" << endl;
-				return;
+				return false;
 			}
 
 			bool areSameColor = false;	//check to see if all cities are same color
@@ -565,12 +575,15 @@ void Player::discoverCure(Map m)
 				discard(cardInt3);
 				discard(cardInt4);
 				discard(cardInt5);
+				return true;
 			}
 			else if (areRepeatInput) {
 				cout << "You inputted the same index more than once..." << endl;
+				return false;
 			}
 			else if (!areSameColor) {
 				cout << "You must input 5 cards of the same color" << endl;
+				return false;
 			}
 		}
 		else {	//player is a scientist
@@ -588,7 +601,7 @@ void Player::discoverCure(Map m)
 				cardInt4 >= getHandSize()
 				) {
 				cout << "Indexes selected were out of range" << endl;
-				return;
+				return false;
 			}
 
 			bool areSameColor = false;	//check to see if all cities are same color
@@ -626,18 +639,23 @@ void Player::discoverCure(Map m)
 				discard(cardInt2);
 				discard(cardInt3);
 				discard(cardInt4);
+				return true;
 			}
 			else if (areRepeatInput) {
 				cout << "You inputted the same index more than once..." << endl;
+				return false;
 			}
 			else if (!areSameColor) {
 				cout << "You must input 5 cards of the same color" << endl;
+				return false;
 			}
 		}
 	}
 	else {
 		cout << "You must be at a research station to discover a cure" << endl;
+		return false;
 	}
+	return false;
 }
 
 void Player::setEventCard(Card ecard)
@@ -684,313 +702,10 @@ void Player::dispatcherAbility(vector<Player>* players, Map* m, int playerIndex)
 		players->at(choice).setLocation(players->at(cityChoice).getLocation());
 		players->at(playerIndex).subtractAction();
 	}
-	else if (ability == 2) { //move another player's pawn as if it was your own
-
+	else if(ability == 2) { //move another player's pawn as if it was your own
+	
 	}
 }
-
-void Player::useEventCard(int i, int playerNum, InfectionDeck ideck, Map newMap)
-{/*
-
-	int choice = i;
-	int cityChoice;
-	int cardId;
-	int num = 0;
-
-	//check for event card
-	// DOESNT TAKE IN ACCOUNT IF THE PLAYER HAS MORE THAN ONE EVENT CARD
-	bool hasEventCard = false;
-	bool contingencyPlannner = false;
-	char answer;
-	Card* eventc;
-	int matchingCardIndex;
-
-	if (this->getRole() == "Contingency Planner" && this->getEventCard().getType() == "Event Card") {
-		cout << "You are a contingency planner, do you want to use your assigned event card or an event card in your hand? Enter 'y' for yes or 'n' for no:" << endl;
-		cin >> answer;
-		while (answer != 'y' || answer != 'n') cout << "Enter 'y' for yes or 'n' for no:" << endl;
-	}
-
-	if (answer == 'y')
-
-		this->contingencyPlanner(i, playerNum, ideck, newMap);
-
-		}
-
-	else
-		
-		
-		(hasEventCard) {
-
-		cout << "Which event card do you own?" << endl;
-
-		cout << "1: Airlift" << endl;
-		cout << "2: Resilient population" << endl;
-		cout << "3: Government Grant" << endl;
-		cout << "4: Forcast" << endl;
-		cout << "5: Use Contingency role" << endl;
-
-		while (num > 5 || num <= 0)
-		{
-			cin >> num;
-			if (num > 5 || num <= 0) {
-				cout << "You must choose an integer between 1 and 5!" << endl;
-			}
-		}
-
-		switch (num) {
-
-		case 1: // Airlift
-		{
-			if (true) {
-				cout << "Which player's pawn do you want to move?";
-				cin >> choice;
-				while (choice <= 0 || choice > playerNum) cin >> choice;
-
-				cout << "Which city do you want to move it to?";
-				cin >> cityChoice;
-				while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-
-				//test this out
-				//this->flight(cityChoice);
-
-				this->flight(this->getHand()[cityChoice]->getId());
-
-				if (this->getRole() == "Contingency Planner")
-					this->removeEvent();
-
-				else
-					this->discard(cardId);
-			}
-			break;
-		}
-
-		case 2: // Resilient population
-		{
-			int discard;
-
-			ideck.showDiscardPile();
-
-			cout << "Which card do you want to remove from the game?" << endl;
-			cin >> discard;
-
-			if (this->getRole() == "Contingency Planner")
-				this->removeEvent();
-
-			else
-				this->discard(cardId);
-
-			break;
-		}
-
-		case 3: // Government Grant
-		{
-
-			cout << "In which city do you want to add a reserch center?";
-			cin >> cityChoice;
-			while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-
-			this->buildStation(&newMap);
-			this->increaseAction();
-
-			if (this->getRole() == "Contingency Planner")
-				this->removeEvent();
-
-			else
-				this->discard(cardId);
-
-			break;
-		}
-
-
-		case 4: // Forcast event card
-		{
-			int ind;
-			vector<InfectionCard> temp;
-
-
-			for (int j = 0; j < 6; j++)
-			{
-				temp.push_back(ideck.deck.front());
-				cout << ideck.deck.at(j).getCityName() << endl;
-			}
-
-			string numbers[] = { "sixth","fifth","forth","third","second","first" };
-
-			for (int j = 0; j < 6; j++) {
-
-				cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
-				cin >> ind;
-
-				ideck.deck.at(5 - j) = temp.at(ind);
-				temp.at(ind) = temp.back();
-				temp.pop_back();
-
-
-				for (int k = 0; k < temp.size(); k++)
-				{
-					cout << temp.at(k).getCityName() << endl;
-				}
-
-				if (this->getRole() == "Contingency Planner")
-					this->removeEvent();
-
-				else
-					this->discard(cardId);
-
-			}
-
-			break;
-		}
-
-		case 5:
-			if (this->getRole() == "Contingency Planner" && this->getEventCard().getType() == "Event Card") {
-
-			}
-			break;
-
-
-		}
-	}
-	else
-		//cout << "You don't own an event card. Choose another action." << endl;
-		if (this->getEventCard().getType() == "Event Card") {
-			cout << i << this->getEventCard().getName() << endl;
-			hasEventCard = true;
-
-		}
-
-
-
-	/*	if (this->getRole() != "Contingency Planner" || this->getEventCard().getType() != "Event Card") {
-	for (int j = 0; j < this->getHandSize(); j++) {
-	if (this->getHand()[j]->getType() == "Event Card") {
-	cout << i << this->getHand()[j]->getName() << endl;
-	cardId = j;
-	num = this->getHand()[j]->getId();
-	hasEventCard = true;
-	}
-
-	}
-	}
-
-	else if (this->getEventCard().getType() == "Event Card") {
-	cout << i << this->getEventCard().getName() << endl;
-	cardId = j;
-	num = this->getHand()[j]->getId();
-	hasEventCard = true;
-
-
-
-	}
-	*/
-
-}
-
-void Player::contingencyPlanner(int i, int playerNum, InfectionDeck ideck, Map newMap)
-{/*
-
-	int choice = i;
-	int cityChoice;
-	int cardId;
-	int num = 0;
-
-
-	int num = this->getEventCard().getId();
-
-	switch (num) {
-
-	case 1: // Airlift
-	{
-		if (true) {
-			cout << "Which player's pawn do you want to move?";
-			cin >> choice;
-			while (choice <= 0 || choice > playerNum) cin >> choice;
-
-			cout << "Which city do you want to move it to?";
-			cin >> cityChoice;
-			while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-
-			//test this out
-			//this->flight(cityChoice);
-
-			this->flight(this->getHand()[cityChoice]->getId());
-
-			this->removeEvent();
-
-		}
-		break;
-	}
-
-	case 3: // Resilient population
-	{
-		int discard;
-
-		ideck.showDiscardPile();
-
-		cout << "Which card do you want to remove from the game?" << endl;
-		cin >> discard;
-
-		this->removeEvent();
-
-		break;
-	}
-
-	case 4: // Government Grant
-	{
-
-		cout << "In which city do you want to add a reserch center?";
-		cin >> cityChoice;
-		while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-
-		this->buildStation(&newMap);
-		this->increaseAction();
-
-		this->removeEvent();
-
-		break;
-	}
-
-
-	case 5: // Forcast event card
-	{
-		int ind;
-		vector<InfectionCard> temp;
-
-
-		for (int j = 0; j < 6; j++)
-		{
-			temp.push_back(ideck.deck.front());
-			cout << ideck.deck.at(j).getCityName() << endl;
-		}
-
-		string numbers[] = { "sixth","fifth","forth","third","second","first" };
-
-		for (int j = 0; j < 6; j++) {
-
-			cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
-			cin >> ind;
-
-			ideck.deck.at(5 - j) = temp.at(ind);
-			temp.at(ind) = temp.back();
-			temp.pop_back();
-
-
-			for (int k = 0; k < temp.size(); k++)
-			{
-				cout << temp.at(k).getCityName() << endl;
-			}
-
-		}
-
-		this->removeEvent();
-
-		break;
-	}
-	}*/
-}
-
-
 
 
 int Player::getHandSize() {

@@ -1,8 +1,7 @@
 #include "InfectionDeck.h"
 #include <algorithm> //for shuffling
 #include <iostream>
-#include "Player.h"
-#include "Map.h"
+
 using namespace std;
 
 int InfectionDeck::infectionCubes; //need another declaration for static to work

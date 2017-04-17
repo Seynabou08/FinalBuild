@@ -1,10 +1,11 @@
 #pragma once
 #include <vector>
-#include "City.h"
-#include "Player.h"
-#include "Card.h"
+#include "../Map/City.h"
+#include "../Player/Player.h"
+#include "../Cards/Card.h"
+#include "../Cards/InfectionDeck.h"
 #include "AbstractStatsObserver.h"
-#include "InfectionDeck.h"
+
 
 using namespace std;
 

@@ -1,23 +1,18 @@
 #pragma once
-#include "AbstractBuilder.h"
-#include "Map.h"
-#include "EventCard.h"
-#include "Role.h"
+#include "../AbstractBuilder.h"
+#include "../Map/Map.h"
+#include "../Cards/EventCard.h"
+#include "../Cards/Role.h"
 #include "Player.h"
 
 
 class PlayerSaver : public AbstractBuilder
 {
-private:
-	Player* player;
-
 public:
-	PlayerSaver(Player* player) {
-		this->player = player;
-	}
-	// ~PlayerSaver();
+	PlayerSaver();
+	~PlayerSaver();
 
-	void Save() // Player* player)
+	void Save(Player* player)
 	{
 		cout << "TRYING TO SAVE MAP" << endl;
 		ofstream myfile;
@@ -47,8 +42,11 @@ public:
 	}
 
 
-	void Load(ifstream* myfile) // , Player* player)
+	void Load(ifstream* myfile, Player* player)
 	{
+
+
+
 		int num = player->getId();
 		string numId = to_string(num);
 		myfile->open("player" + numId + "save.txt");

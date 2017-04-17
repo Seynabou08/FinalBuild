@@ -1,6 +1,6 @@
 //#include "Player.h"
 #include "City.h"
-#include "InfectionDeck.h"
+#include "../Cards/InfectionDeck.h"
 #include <vector>
 
 using namespace std;
