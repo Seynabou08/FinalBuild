@@ -42,14 +42,22 @@ int main(int argc, char* argv[])
 
 
 
-	cout << "How many players do you want to play?" << endl;
+	cout << "How many players are playing?" << endl;
 	int a = 0;
 	int playerNum;
 	while (a > 4 || a == 0)
 	{
-		cin >> a;
-		if (a > 4 || a == 0) {
-			cout << "must choose between 2-4 players" << endl;
+		try {
+			cin >> a;
+			if (cin.fail())
+				throw "Please enter a number";
+			if (a > 4 || a == 0)
+				throw "must choose between 2 and 4 players";
+		}
+		catch (char* error){
+			cout << error << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 	}
 
@@ -71,7 +79,6 @@ int main(int argc, char* argv[])
 
 	vector<Player> players;
 	int cardNum;
-
 	if (playerNum == 2) 
 		cardNum = 4;
 	else if (playerNum == 3) 
@@ -85,16 +92,12 @@ int main(int argc, char* argv[])
 	}
 // Setting up the player deck and the player discard pile
 	vector<Card*> playerDeck;
-
 	for (int i = 0; i < playerNum; i++)
 		players.at(i).setId(i + 1);
-
-
 	for (int i = 0; i < newMap.cities.size(); i++) {
 		CityCard* ccard = new CityCard(newMap.cities[i]);
 		Card* card = new Card();
 		card = ccard;
-
 		playerDeck.push_back(card);
 	}
 
@@ -179,6 +182,7 @@ int main(int argc, char* argv[])
 
 	bool gameover = false;
 	bool isQuietNight;
+	bool hasActiveRole = false;
 	// This loop ensures that each player gets a turn one after te other followed by infection turns
 	while (!gameover) {   //If gameover is true we will exit the loop and that ends the game
 
@@ -222,22 +226,38 @@ int main(int argc, char* argv[])
 				cout << "7. Share Knowledge" << endl;
 				cout << "8. Discover a Cure" << endl;
 				cout << "9. Play event card" << endl;
-				if (players.at(i).getRole() == "Dispatcher" || players.at(i).getRole() == "Operation Expert"|| 
+				if (players.at(i).getRole() == "Dispatcher" || players.at(i).getRole() == "Operation Expert" ||
 					(players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getType() == "Event Card"))
+				{
 					cout << "0. Role" << endl;
+					hasActiveRole = true;
+				}
+				else
+					hasActiveRole = false;
 
 				int action = -1;
-				while (action >= 10 || action < 0)
+				while (((action >= 10 || action < 0) && hasActiveRole) || ((action >= 10 || action < 1) && !hasActiveRole))
 				{
-					cin >> action;
-					if (action > 10 || action < 0) {
-						cout << "You must choose an integer between 0 and 9!" << endl;
+					try {
+						cin >> action;
+						if (cin.fail())
+							throw "Please enter an integer";
+						if ((action >= 10 || action < 0) && hasActiveRole)
+							throw "You must choose an integer between 0 and 9!";
+						if ((action >= 10 || action < 1) && !hasActiveRole)
+							throw "You must choose an integer between 1 and 9!";
+					}
+					catch (char* error)
+					{
+						cout << error << endl;
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					}
 				}
 
 				//char action = (char)actionInt;
 
-				if (action == '0') //if player choses to use his active role ability
+				if (action == 0) //if player choses to use his active role ability
 				{
 					if (players.at(i).getRole() == "Dispatcher")
 					{
