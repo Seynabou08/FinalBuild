@@ -241,33 +241,7 @@ int main(int argc, char* argv[])
 				{
 					if (players.at(i).getRole() == "Dispatcher")
 					{
-						int choice = i;
-						int location;
-						City* newLoc;
-
-						cout << "Which player's pawn do you want to move?" << endl;
-						cin >> choice;
-
-
-						while (choice > playerNum || choice <= 0) {
-							cout << "Please enter a number between 1 and " << playerNum << "." << endl;
-							cin >> choice;
-						}
-
-						cout << "Which city will you move it to ?"<< endl;
-						for (int k = 0; k < playerNum; k++)
-						{
-							if (k != choice-1) {
-								newLoc = newMap.accessCity(players.at(k).getLocation());
-								cout << newLoc->index << " : " << newLoc->getName() << endl;
-							}
-						}
-
-						players.at(choice - 1).move(newMap);
-						players.at(choice - 1).increaseAction();
-						players.at(i).subtractAction();
-
-						break;
+						players.at(i).dispatcherAbility(&players, &newMap, i);
 					}
 
 					if (players.at(i).getRole() == "Contingency Planner")

@@ -3,7 +3,7 @@ PlayerAction::PlayerAction(){}
 PlayerAction::~PlayerAction(){}
 void PlayerAction::flow(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-	if(execute(p1, players, m, d, ideck))
+	if(this->execute(p1, players, m, d, ideck))
 		p1->subtractAction(); 
 	else
 		cout << "action unsuccessfull; no moves subtracted" << endl;
@@ -14,60 +14,63 @@ ActionEnvelope::ActionEnvelope()
 	this->act = NULL;
 }
 ActionEnvelope::~ActionEnvelope(){}
-void ActionEnvelope::setAct(char choice)
+void ActionEnvelope::setAct(int choice)
 {
 	switch(choice)
 	{
-		case '1':
+
+		case 1:
 		{
 			this->act = new Drive();
+			cout << "set to drive" << endl;
 			break;
 		}
-		case '2':
+		case 2:
 		{
 			this->act = new DFlight();
 			break;
 		}
-		case '3':
+		case 3:
 		{
 			this->act = new CFlight();
 			break;
 		}
-		case '4':
+		case 4:
 		{
 			this->act = new SFlight();
 			break;
 		}
-		case '5':
+		case 5:
 		{
 			this->act = new BuildResearch();
 			break;
 		}		
-		case '6':
+		case 6:
 		{
 			this->act = new TreatDisease();
 			break;
 		}		
-		case '7':
+		case 7:
 		{
 			this->act = new ShareKnowledge();
 			break;
 		}		
-		case '8':
+		case 8:
 		{
 			this->act = new DiscoverCure();
 			break;
 		}		
-		case '9':
+		case 9:
 		{
 			this->act = new PlayEvent();
 			break;
 		}		
 	}
+	cout << "action set" << endl;
 }
 void ActionEnvelope::flow(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-	this->act->flow(p1, players,  m, d, ideck);
+	(this->act)->flow(p1, players,  m, d, ideck);
 }
 
 
@@ -75,16 +78,6 @@ Drive::Drive(){}
 Drive::~Drive(){}
 bool Drive::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-	if (p1->getRole() == "Dispatcher") //d is used as player num
-	{
-		int choice = 0;
-		cout << "Which player's pawn do you want to move?";
-		cin >> choice;
-		while (choice > d || choice <= 0) {
-			cout << "Please enter a number between 1 and " << d <<"." << endl;
-			cin >> choice;
-		}
-	}
 	(*m).showCity(p1->getLocation());
 	p1->move(*m);
 	p1->increaseAction(); //action is automatically subtracted in move
@@ -95,16 +88,6 @@ DFlight::DFlight(){}
 DFlight::~DFlight(){}
 bool DFlight::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-					if (p1->getRole() == "Dispatcher")
-					{
-						int choice = 0;
-						cout << "Which player's pawn do you want to move?";
-						cin >> choice;
-						while (choice > d || choice <= 0) {
-							cout << "Please enter a number between 1 and " << d << "." << endl;
-							cin >> choice;
-						}
-					}
 
 					p1->displayHand();
 
@@ -130,18 +113,7 @@ bool DFlight::execute(Player* p1, vector<Player> players, Map* m, int d, Infecti
 CFlight::CFlight(){}
 CFlight::~CFlight(){}
 bool CFlight::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
-{
-	if (p1->getRole() == "Dispatcher")
-					{
-		char choice;
-						cout << "Which player's pawn do you want to move?";
-						cin >> choice;
-						while (choice > d || choice <= 0) {
-							cout << "Please enter a number between 1 and " << d <<"." << endl;
-							cin >> choice;
-						}
-
-					}				
+{			
 
 					//check for matching card
 					bool hasMatchingCard = false;
@@ -179,25 +151,11 @@ SFlight::SFlight(){}
 SFlight::~SFlight(){}
 bool SFlight::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-		
-					int choice = 0;
-
 					City* location = (*m).accessCity(p1->getLocation());
 					vector<int> validCities; //indexes of cities with research stations
 
 					if (location->researchCenter == true)
 					{
-
-						if (p1->getRole() == "Dispatcher")
-						{
-							cout << "Which player's pawn do you want to move?";
-							cin >> choice;
-							while (choice > d || choice <= 0) {
-								cout << "Please enter a number between 1 and " << d << "." << endl;
-								cin >> choice;
-							}
-						}
-
 						for (int j = 0; j < 47; j++)
 						{
 							City* newLoc = (*m).accessCity(j);
@@ -279,134 +237,11 @@ PlayEvent::PlayEvent(){}
 PlayEvent::~PlayEvent(){}
 bool PlayEvent::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-					int choice = 0;
-					int cityChoice;
-					int cardId;
-					int num;
+	if ((*p1).getRole() == "Contingency Planner" && (*p1).getEventCard().getType() == "Event Card")
+		return (*p1).contingencyPlanner(d, *ideck, *m);
 
-					//check for event card
-					// DOESNT TAKE IN ACCOUNT IF THE PLAYER HAS MORE THAN ONE EVENT CARD
-					bool hasMatchingCard = false;
-					int matchingCardIndex;
-					if (p1->getRole() != "Contingency Planner" || p1->getEventCard().getType() != "Event Card") {
-						for (int j = 0; j < p1->getHandSize(); j++) {
-							if (p1->getHand()[j]->getType() == "Event Card") {
-								cout << p1->getHand()[j]->getName() << endl;
-								cardId = j;
-								num = p1->getHand()[j]->getId();
-							}
-						}
-					}
-
-
-					switch (num) {
-					case'1':
-					{
-
-						cout << "Which player's pawn do you want to move?";
-						cin >> choice;
-						while (choice <= 0 || choice > d) cin >> choice;
-
-						cout << "Which city do you want to move it to?";
-						cin >> cityChoice;
-						while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-						//test this out
-						//p1->flight(cityChoice);
-						(&players.at(choice))->flight(p1->getHand()[cityChoice]->getId());
-						(&players.at(choice))->increaseAction();
-						(&players.at(choice))->increaseAction();
-
-						if (p1->getRole() == "Contingency Planner")
-							p1->removeEvent();
-
-						else
-							p1->discard(cardId);
-
-						return true;
-						break;
-					}
-
-					case'3': //take a card from the discard pile of infection cards and remove it from game
-					{
-						int discard;
-
-						(*ideck).showDiscardPile();
-
-						cout << "Which card do you want to remove from the game?" << endl;
-						cin >> discard;
-
-						if (p1->getRole() == "Contingency Planner")
-							p1->removeEvent();
-
-						else
-							p1->discard(cardId);
-
-						return true;
-						break;
-					}
-
-					case'4':
-					{
-
-						cout << "In which city do you want to add a reserch center?";
-						cin >> cityChoice;
-						while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-
-						p1->buildStation(m);
-						p1->increaseAction();
-
-						if (p1->getRole() == "Contingency Planner")
-							p1->removeEvent();
-
-						else
-							p1->discard(cardId);
-
-						return true;
-						break;
-					}
-
-
-					case'5': //examine the top 6 cards of the infection deck and rearrange them to your liking
-					{
-						int ind;
-						vector<InfectionCard> temp;
-
-
-						for (int j = 0; j < 6; j++)
-						{
-							temp.push_back((*ideck).deck.front());
-							cout << (*ideck).deck.at(j).getCityName() << endl;
-						}
-
-						string numbers[] = { "sixth","fifth","forth","third","second","first" };
-
-						for (int j = 0; j < 6; j++) {
-
-							cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
-							cin >> ind;
-
-							(*ideck).deck.at(5 - j) = temp.at(ind);
-							temp.at(ind) = temp.back();
-							temp.pop_back();
-
-
-							for (int k = 0; k < temp.size(); k++)
-							{
-								cout << temp.at(k).getCityName() << endl;
-							}
-
-							if (p1->getRole() == "Contingency Planner")
-								p1->removeEvent();
-
-							else
-								p1->discard(cardId);
-						}
-
-						return true;
-						break;
-					}
-				}
-				return false;
+	else
+		return (*p1).useEventCard(d, *ideck, *m);
 }
 
 

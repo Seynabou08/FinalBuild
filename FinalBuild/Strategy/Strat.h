@@ -24,7 +24,7 @@ class ActionEnvelope
 	public:
 		ActionEnvelope();
 		~ActionEnvelope();
-		void setAct(char choice);
+		void setAct(int choice);
 		void flow(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck);
 		
 	private:
