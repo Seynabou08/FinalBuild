@@ -84,7 +84,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -135,20 +135,68 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="change.txt" />
+    <Text Include="Player\save.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractBuilder.h" />
+    <ClInclude Include="Cards\Card.h" />
+    <ClInclude Include="Cards\CityCard.h" />
+    <ClInclude Include="Cards\Deck.h" />
+    <ClInclude Include="Cards\EpidemicCard.h" />
+    <ClInclude Include="Cards\EventCard.h" />
+    <ClInclude Include="Cards\InfectionCard.h" />
+    <ClInclude Include="Cards\InfectionDeck.h" />
+    <ClInclude Include="Cards\ReferenceCard.h" />
+    <ClInclude Include="Cards\Role.h" />
+    <ClInclude Include="Map\City.h" />
+    <ClInclude Include="Map\Map.h" />
+    <ClInclude Include="Map\MapSaver.h" />
+    <ClInclude Include="Observers\AbstractStatsObserver.h" />
+    <ClInclude Include="Observers\GameStatisticsObservable.h" />
+    <ClInclude Include="Observers\GameStatisticsObserver.h" />
+    <ClInclude Include="Observers\InfectionStatsObserver.h" />
+    <ClInclude Include="Observers\PercentageObserver.h" />
+    <ClInclude Include="Player\Director.h" />
+    <ClInclude Include="Player\Player.h" />
+    <ClInclude Include="Player\PlayerSaver.h" />
+    <ClInclude Include="Player\ReferenceCard.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Strategy\Strat.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FinalBuild.cpp" />
+    <ClCompile Include="Cards\Card.cpp" />
+    <ClCompile Include="Cards\CityCard.cpp" />
+    <ClCompile Include="Cards\Deck.cpp" />
+    <ClCompile Include="Cards\EpidemicCard.cpp" />
+    <ClCompile Include="Cards\EventCard.cpp" />
+    <ClCompile Include="Cards\InfectionCard.cpp" />
+    <ClCompile Include="Cards\InfectionDeck.cpp" />
+    <ClCompile Include="Cards\ReferenceCard.cpp" />
+    <ClCompile Include="Cards\Role.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map\Map.cpp" />
+    <ClCompile Include="Map\MapSaver.cpp" />
+    <ClCompile Include="Observers\GameStatisticsObservable.cpp" />
+    <ClCompile Include="Observers\GameStatisticsObserver.cpp" />
+    <ClCompile Include="Observers\InfectionStatsObserver.cpp" />
+    <ClCompile Include="Observers\PercentageObserver.cpp" />
+    <ClCompile Include="Player\Director.cpp" />
+    <ClCompile Include="Player\Player.cpp" />
+    <ClCompile Include="Player\PlayerSaver.cpp" />
+    <ClCompile Include="Player\ReferenceCard.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Strategy\Strat.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

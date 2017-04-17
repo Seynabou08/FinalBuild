@@ -21,25 +21,24 @@ int main(int argc, char* argv[])
 	newMap.startGame();
 
 	//string fileName = "save.txt";
-	//ifstream myfile;
-	//myfile.open(fileName.data());
+	//ifstream* myfile;
+	//myfile->open(fileName.data());
 
-	//Director director;
-	//director.ConstructMap(new MapSaver(&newMap));
+	Director director1;
+	Director director2;
+	director1.setBuilder(new MapSaver(&newMap));
 
-
-	//displaying the map
-	//newMap.showMap();
+	//director1.ConstructMap(myfile);
+		//displaying the map
+		//newMap.showMap();
 
 	//Place the research station in Atlanta.
-
 	City atlanta = newMap.getCity(7);
 	atlanta.setResearchCenter(true);
 
 
 	//Placing the 4 cure markers, side	up near the discovered cure indicators.
 	cout << "CURES: " << newMap.blueCure << ", " << newMap.yellowCure << ", " << newMap.whiteCure << ", " << newMap.redCure << endl;
-
 
 
 
@@ -84,8 +83,7 @@ int main(int argc, char* argv[])
 	{
 		players.push_back(Player());
 	}
-
-	// Setting up the player deck and the player discard pile
+// Setting up the player deck and the player discard pile
 	vector<Card*> playerDeck;
 
 	for (int i = 0; i < playerNum; i++)
@@ -104,8 +102,7 @@ int main(int argc, char* argv[])
 	vector<Card*> discardPile;
 
 	//Generating event card to add to player deck
-	string eventNames[] = { "Airlift", "One Quiet Night", "Resilient population",
-		"Government Grant", "Forcast" };
+	string eventNames[] = { "Airlift", "One Quiet Night", "Resilient population", "Government Grant", "Forcast" };
 
 	EventCard* eventCard = new EventCard();
 	for (int i = 0; i < 5; i++)
@@ -119,9 +116,8 @@ int main(int argc, char* argv[])
 	// GENERATING ROLE DECK
 	vector<Role*> roleDeck;
 
-	string roleNames[] = { "Contingency Planner", "Dispatcher", "Medic",
-		"Operation Expert", "Quarantine Specialist", "Researcher", "Scientist" };
-		
+	string roleNames[] = { "Contingency Planner", "Dispatcher", "Medic", "Operation Expert", "Quarantine Specialist", "Researcher", "Scientist" };
+
 	// I PUT THESE HERE SO I CAN TEST THE ROLES EASILY. PLEASE DONT REMOVE =3 
 	//string roleNames[] = { "Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner","Contingency Planner"};
 	//string roleNames[] = { "Dispatcher","Dispatcher","Dispatcher","Dispatcher","Dispatcher","Dispatcher","Dispatcher" };
@@ -149,9 +145,13 @@ int main(int argc, char* argv[])
 
 
 	for (int i = 0; i < playerNum; i++) {
+
 		Player* player = &players.at(i);
+
 		player->drawCards(newMap, playerDeck, cardNum);
+
 		player->setRole(*roleDeck.back());
+
 		roleDeck.pop_back();
 	}
 
@@ -175,11 +175,10 @@ int main(int argc, char* argv[])
 	//GameStatisticsObserver gameStatsView = GameStatisticsObserver(&gameStatsOb);
 	//GameStatisticsObserver gameStatsView = GameStatisticsObserver(&gameStatsOb, new InfectionStatsObserver(&gameStatsOb));	//same as above line but with decorator
 	GameStatisticsObserver gameStatsView = GameStatisticsObserver(&gameStatsOb, new InfectionStatsObserver(&gameStatsOb, new PercentageObserver(&gameStatsOb)));	//same as above line but with 2 decorator
-	ActionEnvelope playerMoves = ActionEnvelope();
+
 
 	bool gameover = false;
 	bool isQuietNight;
-
 	// This loop ensures that each player gets a turn one after te other followed by infection turns
 	while (!gameover) {   //If gameover is true we will exit the loop and that ends the game
 
@@ -226,8 +225,17 @@ int main(int argc, char* argv[])
 				if (players.at(i).getRole() == "Dispatcher" || players.at(i).getRole() == "Operation Expert"|| 
 					(players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getType() == "Event Card"))
 					cout << "0. Role" << endl;
-				char action;
-				cin >> action;
+
+				int action = -1;
+				while (action >= 10 || action < 0)
+				{
+					cin >> action;
+					if (action > 10 || action < 0) {
+						cout << "You must choose an integer between 0 and 9!" << endl;
+					}
+				}
+
+				//char action = (char)actionInt;
 
 				if (action == '0') //if player choses to use his active role ability
 				{
@@ -316,21 +324,20 @@ int main(int argc, char* argv[])
 
 
 
-
-			////////////END TURN / DRAW 2 PLAYER CARDS////////////
+////////////END TURN / DRAW 2 PLAYER CARDS////////////
 			players.at(i).concludeTurn(playerDeck, newMap);
 
 
-			//director.SavePlayer(new PlayerSaver, &players.at(i));
-
-			//director.SaveMap(new MapSaver(&newMap));
+			//director2.setBuilder(new PlayerSaver(&players.at(i)));
+			//director1.SavePlayer();
+			//director2.SaveMap();
 
 
 
 
 			/////////////INFECT CITIES///////////////
 			isQuietNight = false;
-			if (players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getName() == "One Quiet Night") 
+			if (players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getName() == "One Quiet Night")
 			{
 				isQuietNight = true;
 				players.at(i).removeEvent();
@@ -339,11 +346,11 @@ int main(int argc, char* argv[])
 			else for (int j = 0; j < players.at(i).getHandSize(); j++) {
 				if (players.at(i).getHand()[j]->getType() == "Event Card" && players.at(i).getHand()[j]->getName() == "One Quiet Night") {
 					isQuietNight = true;
-						players.at(i).discard(j);
+					players.at(i).discard(j);
 				}
 			}
 
-			
+
 
 			if (!isQuietNight) {
 				cout << "------------------INFECTION TURN------------------" << endl;
@@ -363,8 +370,6 @@ int main(int argc, char* argv[])
 			}
 
 		}
-
-
 	}
 
 
