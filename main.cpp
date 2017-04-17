@@ -23,10 +23,9 @@ int main(int argc, char* argv[])
 	ifstream myfile;
 	myfile.open(fileName.data());
 
-	//	Director director1;
-	//	Director director2;
-
-		//director1.setBuilder(new MapSaver(&newMap));
+	Director director1;
+	Director director2;
+	director1.setBuilder(new MapSaver(&newMap));
 
 
 		//displaying the map
@@ -673,9 +672,9 @@ int main(int argc, char* argv[])
 			players.at(i).concludeTurn(playerDeck, newMap);
 
 
-			//director2.setBuilder(new PlayerSaver(&players.at(i)));
-			//director1.SavePlayer();
-			//director2.SaveMap();
+			director2.setBuilder(new PlayerSaver(&players.at(i)));
+			director1.SavePlayer();
+			director2.SaveMap();
 
 
 
