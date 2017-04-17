@@ -62,6 +62,8 @@ public:
 	void shareKnowledge(Player* target);
 	void discoverCure(Map m);
 	void dispatcherAbility(vector<Player>*, Map* m, int playerIndex);
+	void useEventCard(int i, int playerNum, InfectionDeck ideck, Map newMap);
+	void contingencyPlanner(int i, int playerNum, InfectionDeck ideck, Map newMap);
 
 	//automatic mandatory actions
 	void startTurn();

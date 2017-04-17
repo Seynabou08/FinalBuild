@@ -19,19 +19,19 @@ int main(int argc, char* argv[])
 	Map newMap = Map(48);
 	newMap.startGame();
 
-	string fileName = "save.txt";
-	ifstream myfile;
-	myfile.open(fileName.data());
+	//string fileName = "save.txt";
+	//ifstream* myfile;
+	//myfile->open(fileName.data());
 
 	Director director1;
 	Director director2;
 	director1.setBuilder(new MapSaver(&newMap));
 
-
+	//director1.ConstructMap(myfile);
 		//displaying the map
 		//newMap.showMap();
 
-		//Place the research station in Atlanta.
+	//Place the research station in Atlanta.
 	City atlanta = newMap.getCity(7);
 	atlanta.setResearchCenter(true);
 
@@ -247,11 +247,20 @@ int main(int argc, char* argv[])
 					cout << "0. Role" << endl;
 
 
-				char action;
-				cin >> action;
+				int action = -1;
 
+				while (action >= 10 || action < 0)
+				{
+					cin >> action;
+					if (action > 10 || action < 0) {
+						cout << "You must choose an integer between 0 and 9!" << endl;
+					}
+				}
+
+				//char action = (char)actionInt;
+				
 				switch (action) {
-				case '1':	//Drive/Ferry
+				case 1:	//Drive/Ferry
 				{
 					int choice = i;
 
@@ -273,7 +282,7 @@ int main(int argc, char* argv[])
 
 					break;
 				}
-				case '2':	//Direct Flight: Discard a City card to move to the city named on the card.
+				case 2:	//Direct Flight: Discard a City card to move to the city named on the card.
 				{
 					int choice = i;
 
@@ -309,7 +318,7 @@ int main(int argc, char* argv[])
 					players.at(i).discard(cardInt);
 					break;
 				}
-				case '3':	//Charter Flight: Discard the City card that matches the city you are in to move to any city.
+				case 3:	//Charter Flight: Discard the City card that matches the city you are in to move to any city.
 				{
 
 					int choice = i;
@@ -357,13 +366,11 @@ int main(int argc, char* argv[])
 
 					break;
 				}
-				case '4': //Shuttle Flight	Move from a city with a research station to any other city that has a research station.
+				case 4: //Shuttle Flight	Move from a city with a research station to any other city that has a research station.
 				{
 
 					int choice = i;
-
-
-
+					
 					City* location = newMap.accessCity(players.at(i).getLocation());
 					vector<int> validCities; //indexes of cities with research stations
 
@@ -414,20 +421,24 @@ int main(int argc, char* argv[])
 							}
 						}
 					}
+					else  cout << "Your location does not have a research center. Choose another action." << endl;
+
+			
 					break;
 				}
-				case '5': //Building a Research Station
+				case 5: //Building a Research Station
 				{
+
 					players.at(i).buildStation(&newMap);
 					break;
 				}
 
-				case '6':	//Treating a disease
+				case 6:	//Treating a disease
 				{
 					players.at(i).treatDisease(newMap); //TODO Might have to add disease cubes back to supply
 					break;
 				}
-				case '7': //Sharing knowledge
+				case 7: //Sharing knowledge
 				{
 					cout << "With which player do you want to share knowledge?" << endl;
 					int a = i;
@@ -447,125 +458,91 @@ int main(int argc, char* argv[])
 					players.at(i).shareKnowledge(buddy);
 					break;
 				}
-				case '8'://Discover a Cure
+				case 8://Discover a Cure
 				{
 					players.at(i).discoverCure(newMap);
 					break;
 				}
-				case '9':	//event cards
+				case 9:	//event cards
 				{
+					players.at(i).useEventCard(i, playerNum, ideck, newMap);
+					break;
 
+					/*
 					int choice = i;
 					int cityChoice;
 					int cardId;
-					int num;
+					int num = 0;
 
 					//check for event card
 					// DOESNT TAKE IN ACCOUNT IF THE PLAYER HAS MORE THAN ONE EVENT CARD
-					bool hasMatchingCard = false;
+					bool hasEventCard = false;
+					Card* eventc;
 					int matchingCardIndex;
-					if (players.at(i).getRole() != "Contingency Planner" || players.at(i).getEventCard().getType() != "Event Card") {
-						for (int j = 0; j < players.at(i).getHandSize(); j++) {
-							if (players.at(i).getHand()[j]->getType() == "Event Card") {
-								cout << i << players.at(i).getHand()[j]->getName() << endl;
-								cardId = j;
-								num = players.at(i).getHand()[j]->getId();
-							}
+
+					for (int j = 0; j < players.at(i).getHandSize(); j++) {
+						if (players.at(i).getHand()[j]->getType() == "Event Card") {
+							cout << i << players.at(i).getHand()[j]->getName() << endl;
+							cardId = j;
+							num = players.at(i).getHand()[j]->getId();
+							hasEventCard = true;
 						}
+
 					}
 
+					if (hasEventCard) { 
 
-					switch (num) {
+						cout << "Which event card do you own?" << endl;
 
-					case'1':
-					{
-
-						cout << "Which player's pawn do you want to move?";
-						cin >> choice;
-						while (choice <= 0 || choice > playerNum) cin >> choice;
-
-						cout << "Which city do you want to move it to?";
-						cin >> cityChoice;
-						while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-						//test this out
-						//players.at(i).flight(cityChoice);
-						players.at(i).flight(players.at(i).getHand()[cityChoice]->getId());
-
-						if (players.at(i).getRole() == "Contingency Planner")
-							players.at(i).removeEvent();
-
-						else
-							players.at(i).discard(cardId);
-
-						break;
-					}
-
-					case'3': //take a card from the discard pile of infection cards and remove it from game
-					{
-						int discard;
-
-						ideck.showDiscardPile();
-
-						cout << "Which card do you want to remove from the game?" << endl;
-						cin >> discard;
-
-						if (players.at(i).getRole() == "Contingency Planner")
-							players.at(i).removeEvent();
-
-						else
-							players.at(i).discard(cardId);
-
-						break;
-					}
-
-					case'4':
-					{
-
-						cout << "In which city do you want to add a reserch center?";
-						cin >> cityChoice;
-						while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
-
-						players.at(i).buildStation(&newMap);
-						players.at(i).increaseAction();
-
-						if (players.at(i).getRole() == "Contingency Planner")
-							players.at(i).removeEvent();
-
-						else
-							players.at(i).discard(cardId);
-
-						break;
-					}
+						cout << "1: Airlift" << endl;
+						cout << "2: Resilient population" << endl;
+						cout << "3: Government Grant" << endl;
+						cout << "4: Forcast" << endl;
 
 
-					case'5': //examine the top 6 cards of the infection deck and rearrange them to your liking
-					{
-						int ind;
-						vector<InfectionCard> temp;
-
-
-						for (int j = 0; j < 6; j++)
+						while (action >= 5 || action <= 0)
 						{
-							temp.push_back(ideck.deck.front());
-							cout << ideck.deck.at(j).getCityName() << endl;
+							cin >> num;
+							if (action >= 5 || action <= 0) {
+								cout << "You must choose an integer between 1 and 4!" << endl;
+							}
 						}
 
-						string numbers[] = { "sixth","fifth","forth","third","second","first" };
+						switch (num) {
 
-						for (int j = 0; j < 6; j++) {
+						case 1: // Airlift
+						{
+							if (true) {
+								cout << "Which player's pawn do you want to move?";
+								cin >> choice;
+								while (choice <= 0 || choice > playerNum) cin >> choice;
 
-							cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
-							cin >> ind;
+								cout << "Which city do you want to move it to?";
+								cin >> cityChoice;
+								while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
 
-							ideck.deck.at(5 - j) = temp.at(ind);
-							temp.at(ind) = temp.back();
-							temp.pop_back();
+								//test this out
+								//players.at(i).flight(cityChoice);
 
+								players.at(i).flight(players.at(i).getHand()[cityChoice]->getId());
 
-							for (int k = 0; k < temp.size(); k++)
-							{
-								cout << temp.at(k).getCityName() << endl;
+								if (players.at(i).getRole() == "Contingency Planner")
+									players.at(i).removeEvent();
+
+								else
+									players.at(i).discard(cardId);
 							}
+							break;
+						}
+
+						case 2: // Resilient population
+						{
+							int discard;
+
+							ideck.showDiscardPile();
+
+							cout << "Which card do you want to remove from the game?" << endl;
+							cin >> discard;
 
 							if (players.at(i).getRole() == "Contingency Planner")
 								players.at(i).removeEvent();
@@ -573,17 +550,114 @@ int main(int argc, char* argv[])
 							else
 								players.at(i).discard(cardId);
 
+							break;
+						}
+
+						case 3: // Government Grant
+						{
+
+							cout << "In which city do you want to add a reserch center?";
+							cin >> cityChoice;
+							while (cityChoice <= 0 || cityChoice > 48) cin >> cityChoice;
+
+							players.at(i).buildStation(&newMap);
+							players.at(i).increaseAction();
+
+							if (players.at(i).getRole() == "Contingency Planner")
+								players.at(i).removeEvent();
+
+							else
+								players.at(i).discard(cardId);
+
+							break;
+						}
+
+
+						case 4: // Forcast event card
+						{
+							int ind;
+							vector<InfectionCard> temp;
+
+
+							for (int j = 0; j < 6; j++)
+							{
+								temp.push_back(ideck.deck.front());
+								cout << ideck.deck.at(j).getCityName() << endl;
+							}
+
+							string numbers[] = { "sixth","fifth","forth","third","second","first" };
+
+							for (int j = 0; j < 6; j++) {
+
+								cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
+								cin >> ind;
+
+								ideck.deck.at(5 - j) = temp.at(ind);
+								temp.at(ind) = temp.back();
+								temp.pop_back();
+
+
+								for (int k = 0; k < temp.size(); k++)
+								{
+									cout << temp.at(k).getCityName() << endl;
+								}
+
+								if (players.at(i).getRole() == "Contingency Planner")
+									players.at(i).removeEvent();
+
+								else
+									players.at(i).discard(cardId);
+
+							}
+
+							break;
 						}
 
 						break;
+
+
+						}
 					}
+					else
+						//cout << "You don't own an event card. Choose another action." << endl;
+						if (players.at(i).getEventCard().getType() == "Event Card") {
+								cout << i << players.at(i).getEventCard().getName() << endl;
+								cardId = j;
+								num = players.at(i).getHand()[j]->getId();
+								hasEventCard = true;
 
-					break;
 
 
-					}
+
+							}
+
+
+
+							/*	if (players.at(i).getRole() != "Contingency Planner" || players.at(i).getEventCard().getType() != "Event Card") {
+							for (int j = 0; j < players.at(i).getHandSize(); j++) {
+							if (players.at(i).getHand()[j]->getType() == "Event Card") {
+							cout << i << players.at(i).getHand()[j]->getName() << endl;
+							cardId = j;
+							num = players.at(i).getHand()[j]->getId();
+							hasEventCard = true;
+							}
+
+							}
+							}
+
+							else if (players.at(i).getEventCard().getType() == "Event Card") {
+							cout << i << players.at(i).getEventCard().getName() << endl;
+							cardId = j;
+							num = players.at(i).getHand()[j]->getId();
+							hasEventCard = true;
+
+
+
+							}
+							*/
+				
 				}
-				case '0':
+				case 0:
 				{
 					if (players.at(i).getRole() == "Dispatcher")
 					{
@@ -657,7 +731,7 @@ int main(int argc, char* argv[])
 					}
 					else
 					{
-						cout << "You are neither a dispatcher, a Contingency Planer nor an Operations Expert you can't do this!";
+						cout << "You are neither a dispatcher, a Contingency Planer nor an Operations Expert you can't do this!" << endl;
 						break;
 					}
 
@@ -672,9 +746,9 @@ int main(int argc, char* argv[])
 			players.at(i).concludeTurn(playerDeck, newMap);
 
 
-			director2.setBuilder(new PlayerSaver(&players.at(i)));
-			director1.SavePlayer();
-			director2.SaveMap();
+			//director2.setBuilder(new PlayerSaver(&players.at(i)));
+			//director1.SavePlayer();
+			//director2.SaveMap();
 
 
 
