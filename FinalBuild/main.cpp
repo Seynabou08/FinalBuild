@@ -1,4 +1,5 @@
 #include "Strategy/Strat.h"
+#include "Exceptions/UserInputException.h"
 #include "Map/Map.h"
 #include "Cards/EventCard.h"
 #include "Cards/InfectionDeck.h"
@@ -6,11 +7,12 @@
 #include <iostream>
 #include <algorithm>
 #include "Player/Player.h"
+#include "Player/Director.h"
 #include "Observers/GameStatisticsObservable.h"
 #include "Observers/GameStatisticsObserver.h"
 #include "Observers/InfectionStatsObserver.h"
 #include "Observers/PercentageObserver.h"
-#include "Player/Director.h"
+
 
 using namespace std;
 
@@ -45,19 +47,23 @@ int main(int argc, char* argv[])
 	cout << "How many players are playing?" << endl;
 	int a = 0;
 	int playerNum;
-	while (a > 4 || a == 0)
+	while (a > 4 || a <= 0)
 	{
 		try {
 			cin >> a;
 			if (cin.fail())
-				throw "Please enter a number";
-			if (a > 4 || a == 0)
-				throw "must choose between 2 and 4 players";
+				throw NANException(a);
+			if (a > 4 || a <= 0)
+				throw WrongNumberException(1, 4, a);
 		}
-		catch (char* error){
-			cout << error << endl;
+		catch (NANException& e){
+			e.what();
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+		catch (WrongNumberException& e)
+		{
+			e.what();
 		}
 	}
 
@@ -241,17 +247,21 @@ int main(int argc, char* argv[])
 					try {
 						cin >> action;
 						if (cin.fail())
-							throw "Please enter an integer";
+							throw NANException(action);
 						if ((action >= 10 || action < 0) && hasActiveRole)
-							throw "You must choose an integer between 0 and 9!";
+							throw WrongNumberException(0, 9, action);
 						if ((action >= 10 || action < 1) && !hasActiveRole)
-							throw "You must choose an integer between 1 and 9!";
+							throw WrongNumberException(1, 9, action);
 					}
-					catch (char* error)
+					catch (NANException error)
 					{
-						cout << error << endl;
+						error.what();
 						cin.clear();
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					}
+					catch (WrongNumberException e)
+					{
+						e.what();
 					}
 				}
 

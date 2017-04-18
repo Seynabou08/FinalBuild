@@ -150,6 +150,7 @@
     <ClInclude Include="Cards\InfectionDeck.h" />
     <ClInclude Include="Cards\ReferenceCard.h" />
     <ClInclude Include="Cards\Role.h" />
+    <ClInclude Include="Exceptions\UserInputException.h" />
     <ClInclude Include="Map\City.h" />
     <ClInclude Include="Map\Map.h" />
     <ClInclude Include="Map\MapSaver.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Cards\InfectionDeck.cpp" />
     <ClCompile Include="Cards\ReferenceCard.cpp" />
     <ClCompile Include="Cards\Role.cpp" />
+    <ClCompile Include="Exceptions\UserInputException.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\Map.cpp" />
     <ClCompile Include="Map\MapSaver.cpp" />
