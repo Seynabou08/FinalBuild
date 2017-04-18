@@ -988,9 +988,6 @@ bool Player::useEventCard(int playerNum, InfectionDeck ideck, Map newMap)
 					this->discard(cardId);
 
 				return true;
-
-
-
 			}
 			else
 			{
@@ -1006,20 +1003,9 @@ bool Player::useEventCard(int playerNum, InfectionDeck ideck, Map newMap)
 		cout << "You don't own an event card. Choose another action." << endl;
 		return false;
 	}
-		}
-
-		}
-	}
-	else
-	{
-		cout << "You don't own an event card. Choose another action." << endl;
-		return false;
-	}
-
-
 }
 
-bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
+bool Player::contingencyPlanner(int playerNum, InfectionDeck ideck, Map newMap)
 {
 	int choice = 0;
 	int cityChoice;
@@ -1035,16 +1021,13 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 	cin >> answer;
 	while (answer != 'y' || answer != 'n') cout << "Enter 'y' or 'n':" << endl;
 
-
 	if (answer == 'n')
 		return this->useEventCard(playerNum, ideck, newMap);
 
 	else if (answer == 'y') {
-
 		num = this->getEventCard().getId();
 
 		switch (num) {
-
 		case 1: // Airlift
 		{
 			if (true) {
@@ -1063,11 +1046,9 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 
 				this->removeEvent();
 				return true;
-
 			}
 			break;
 		}
-
 		case 3: // Resilient population
 		{
 			int discard;
@@ -1082,7 +1063,6 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 
 			break;
 		}
-
 		case 4: // Government Grant
 		{
 
@@ -1103,63 +1083,54 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 		{
 			if (this->getHand()[cardId]->getName() == "Forcast") {
 
-			int ind;
-			vector<InfectionCard> temp;
+				int ind;
+				vector<InfectionCard> temp;
 
 
-			for (int j = 0; j < 6; j++)
-			{
-				temp.push_back(ideck.deck.back());
-				ideck.deck.pop_back();
-				cout << j << " : " << temp.at(j).getCityName() << endl;
-			}
-
-			string numbers[] = { "sixth", "fifth", "forth", "third", "second", "first" };
-
-			for (int j = 0; j < 6; j++) {
-
-				cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
-				cin >> ind;
-
-				while (ind < 0 || ind > 5 - j) cin >> ind;
-
-				ideck.deck.at(5 - j) = temp.at(ind);
-				temp.at(ind) = temp.back();
-				temp.pop_back();
-
-
-				for (int k = 0; k < temp.size(); k++)
+				for (int j = 0; j < 6; j++)
 				{
-					cout << k << " : " << temp.at(k).getCityName() << endl;
+					temp.push_back(ideck.deck.back());
+					ideck.deck.pop_back();
+					cout << j << " : " << temp.at(j).getCityName() << endl;
 				}
+
+				string numbers[] = { "sixth", "fifth", "forth", "third", "second", "first" };
+
+				for (int j = 0; j < 6; j++) {
+
+					cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
+					cin >> ind;
+
+					while (ind < 0 || ind > 5 - j) cin >> ind;
+
+					ideck.deck.at(5 - j) = temp.at(ind);
+					temp.at(ind) = temp.back();
+					temp.pop_back();
+
+
+					for (int k = 0; k < temp.size(); k++)
+					{
+						cout << k << " : " << temp.at(k).getCityName() << endl;
+					}
+				}
+				if (this->getRole() == "Contingency Planner")
+					this->removeEvent();
+
+				else
+					this->discard(cardId);
+
+				return true;
 			}
-			if (this->getRole() == "Contingency Planner")
-				this->removeEvent();
-
 			else
-				this->discard(cardId);
-
-			return true;
-
-
-
-		}
-		else
-		{
-			cout << "you don't own this event card." << endl;
-			return false;
-		}
+			{
+				cout << "you don't own this event card." << endl;
+				return false;
+			}
 		}
 
-		}
-	}
-	else
-	{
-		cout << "You don't own an event card. Choose another action." << endl;
 		return false;
+		}
 	}
-	}
-	return false;
 }
 
 
@@ -1167,7 +1138,3 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 int Player::getHandSize() {
 	return this->cards.size();
 }
-
-
-
-

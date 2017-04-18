@@ -9,6 +9,8 @@ EventCard::EventCard(string n, int i) :Card(n, 'r', i)
 EventCard::EventCard() : Card("null", 'r', 0)
 {
 	eCard = Card("null", 'r', 0);
+	this->setType("Event Card");
+
 }
 
 EventCard::~EventCard(){}

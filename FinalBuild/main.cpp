@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <Windows.h>
 #include <shellapi.h>
+#undef max
 
 using namespace std;
 
@@ -61,7 +62,7 @@ int main(int argc, char* argv[])
 		catch (NANException& e){
 			e.what();
 			cin.clear();
-			//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		catch (WrongNumberException& e)
 		{
@@ -202,7 +203,7 @@ int main(int argc, char* argv[])
 				//Displaying the possible actions the player can make
 				cout << "Player " << i + 1 << " is at " << newMap.cities[players.at(i).getLocation()]->getName() << endl;
 				cout << "Player " << i + 1 << ": Choose your action..." << endl;
-
+				players.at(i).displayHand();
 				players.at(i).displayActionsLeft();
 
 				//Manually update observable (probably not best way to do this)
@@ -259,7 +260,7 @@ int main(int argc, char* argv[])
 					{
 						error.what();
 						cin.clear();
-						//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					}
 					catch (WrongNumberException e)
 					{

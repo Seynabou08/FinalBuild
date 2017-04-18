@@ -1,7 +1,42 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(937,5): warning MSB8027: Two or more files with the name of ReferenceCard.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Cards\ReferenceCard.cpp, Player\ReferenceCard.cpp.
   main.cpp
-c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(105): warning C4018: '<': signed/unsigned mismatch
-c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(283): warning C4018: '<': signed/unsigned mismatch
-Debug\ReferenceCard.obj : warning LNK4042: object specified more than once; extras ignored
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(106): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(284): warning C4018: '<': signed/unsigned mismatch
+  Player.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(206): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(214): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(309): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(319): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(681): warning C4018: '>': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(696): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(700): warning C4018: '>=': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(759): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(800): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(675): warning C4101: 'location': unreferenced local variable
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(676): warning C4101: 'newLoc': unreferenced local variable
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(979): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(832): warning C4101: 'matchingCardIndex': unreferenced local variable
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1111): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1017): warning C4101: 'eventc': unreferenced local variable
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1018): warning C4101: 'matchingCardIndex': unreferenced local variable
+  EventCard.cpp
+  Generating Code...
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1134): warning C4715: 'Player::contingencyPlanner': not all control paths return a value
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1084): warning C4700: uninitialized local variable 'cardId' used
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1006): warning C4715: 'Player::useEventCard': not all control paths return a value
+  Skipping... (no relevant changes detected)
+  Strat.cpp
+  PlayerSaver.cpp
+  Director.cpp
+  PercentageObserver.cpp
+  InfectionStatsObserver.cpp
+  GameStatisticsObserver.cpp
+  GameStatisticsObservable.cpp
+  MapSaver.cpp
+  Map.cpp
+  Role.cpp
+  InfectionDeck.cpp
+  InfectionCard.cpp
+  EpidemicCard.cpp
   FinalBuild.vcxproj -> C:\Users\Daniel\Documents\Visual Studio 2017\Projects\FinalBuild\Debug\FinalBuild.exe
   FinalBuild.vcxproj -> C:\Users\Daniel\Documents\Visual Studio 2017\Projects\FinalBuild\Debug\FinalBuild.pdb (Partial PDB)
