@@ -4,15 +4,16 @@
 #include "Cards/EventCard.h"
 #include "Cards/InfectionDeck.h"
 #include "Cards/EpidemicCard.h"
-#include <iostream>
-#include <algorithm>
 #include "Player/Player.h"
 #include "Player/Director.h"
 #include "Observers/GameStatisticsObservable.h"
 #include "Observers/GameStatisticsObserver.h"
 #include "Observers/InfectionStatsObserver.h"
 #include "Observers/PercentageObserver.h"
-
+#include <iostream>
+#include <algorithm>
+#include <Windows.h>
+#include <shellapi.h>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ int main(int argc, char* argv[])
 	// Initializing the map 
 	Map newMap = Map(48);
 	newMap.startGame();
+	ShellExecute(NULL, NULL, L"C:\\Users\\Daniel\\Documents\\Visual Studio 2017\\Projects\\FinalBuild\\FinalBuild\\pandemicMap.jpg", NULL, NULL, SW_SHOWDEFAULT);
 
 	//string fileName = "save.txt";
 	//ifstream* myfile;
@@ -59,7 +61,7 @@ int main(int argc, char* argv[])
 		catch (NANException& e){
 			e.what();
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		catch (WrongNumberException& e)
 		{
@@ -242,22 +244,22 @@ int main(int argc, char* argv[])
 					hasActiveRole = false;
 
 				int action = -1;
-				while (((action >= 10 || action < 0) && hasActiveRole) || ((action >= 10 || action < 1) && !hasActiveRole))
+				while (((action >= 11 || action < 0) && hasActiveRole) || ((action >= 11 || action < 1) && !hasActiveRole))
 				{
 					try {
 						cin >> action;
 						if (cin.fail())
 							throw NANException(action);
 						if ((action >= 10 || action < 0) && hasActiveRole)
-							throw WrongNumberException(0, 9, action);
+							throw WrongNumberException(0, 10, action);
 						if ((action >= 10 || action < 1) && !hasActiveRole)
-							throw WrongNumberException(1, 9, action);
+							throw WrongNumberException(1, 10, action);
 					}
 					catch (NANException error)
 					{
 						error.what();
 						cin.clear();
-						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					}
 					catch (WrongNumberException e)
 					{
@@ -280,8 +282,8 @@ int main(int argc, char* argv[])
 
 						for (int j = 0; j < discardPile.size(); j++)
 						{
-							if(discardPile[j]->getType()=="Event Card")
-							cout << "Card at index " << j << ": " << discardPile[j]->getName() << endl;
+							if (discardPile[j]->getType() == "Event Card")
+								cout << "Card at index " << j << ": " << discardPile[j]->getName() << endl;
 						}
 
 						cout << "Which event card do you want to add to your role?" << endl;
