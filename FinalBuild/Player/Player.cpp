@@ -957,8 +957,9 @@ bool Player::useEventCard(int playerNum, InfectionDeck ideck, Map newMap)
 
 				for (int j = 0; j < 6; j++)
 				{
-					temp.push_back(ideck.deck.front());
-					cout << ideck.deck.at(j).getCityName() << endl;
+					temp.push_back(ideck.deck.back());
+					ideck.deck.pop_back();
+					cout << j << " : " << temp.at(j).getCityName() << endl;
 				}
 
 				string numbers[] = { "sixth","fifth","forth","third","second","first" };
@@ -968,6 +969,8 @@ bool Player::useEventCard(int playerNum, InfectionDeck ideck, Map newMap)
 					cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
 					cin >> ind;
 
+					while (ind < 0 || ind > 5-j ) cin >> ind;
+
 					ideck.deck.at(5 - j) = temp.at(ind);
 					temp.at(ind) = temp.back();
 					temp.pop_back();
@@ -975,18 +978,18 @@ bool Player::useEventCard(int playerNum, InfectionDeck ideck, Map newMap)
 
 					for (int k = 0; k < temp.size(); k++)
 					{
-						cout << temp.at(k).getCityName() << endl;
+						cout <<  k << " : " << temp.at(k).getCityName() << endl;
 					}
-
-					if (this->getRole() == "Contingency Planner")
-						this->removeEvent();
-
-					else
-						this->discard(cardId);
-
-					return true;
-
 				}
+				if (this->getRole() == "Contingency Planner")
+					this->removeEvent();
+
+				else
+					this->discard(cardId);
+
+				return true;
+
+
 
 			}
 			else
@@ -994,6 +997,15 @@ bool Player::useEventCard(int playerNum, InfectionDeck ideck, Map newMap)
 				cout << "you don't own this event card." << endl;
 				return false;
 			}
+		}
+
+		}
+	}
+	else
+	{
+		cout << "You don't own an event card. Choose another action." << endl;
+		return false;
+	}
 		}
 
 		}
@@ -1089,22 +1101,27 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 
 		case 5: // Forcast event card
 		{
+			if (this->getHand()[cardId]->getName() == "Forcast") {
+
 			int ind;
 			vector<InfectionCard> temp;
 
 
 			for (int j = 0; j < 6; j++)
 			{
-				temp.push_back(ideck.deck.front());
-				cout << ideck.deck.at(j).getCityName() << endl;
+				temp.push_back(ideck.deck.back());
+				ideck.deck.pop_back();
+				cout << j << " : " << temp.at(j).getCityName() << endl;
 			}
 
-			string numbers[] = { "sixth","fifth","forth","third","second","first" };
+			string numbers[] = { "sixth", "fifth", "forth", "third", "second", "first" };
 
 			for (int j = 0; j < 6; j++) {
 
 				cout << "Which card do you want to be in the " << numbers[j] << " position?" << endl;
 				cin >> ind;
+
+				while (ind < 0 || ind > 5 - j) cin >> ind;
 
 				ideck.deck.at(5 - j) = temp.at(ind);
 				temp.at(ind) = temp.back();
@@ -1113,17 +1130,34 @@ bool Player::contingencyPlanner( int playerNum, InfectionDeck ideck, Map newMap)
 
 				for (int k = 0; k < temp.size(); k++)
 				{
-					cout << temp.at(k).getCityName() << endl;
+					cout << k << " : " << temp.at(k).getCityName() << endl;
 				}
-
 			}
+			if (this->getRole() == "Contingency Planner")
+				this->removeEvent();
 
-			this->removeEvent();
+			else
+				this->discard(cardId);
+
 			return true;
 
-			break;
+
+
+		}
+		else
+		{
+			cout << "you don't own this event card." << endl;
+			return false;
 		}
 		}
+
+		}
+	}
+	else
+	{
+		cout << "You don't own an event card. Choose another action." << endl;
+		return false;
+	}
 	}
 	return false;
 }
