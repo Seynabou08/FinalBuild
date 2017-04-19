@@ -22,6 +22,6 @@ NANException::~NANException()
 void NANException::what()
 {
 	cout << "Please enter a number" << endl;
-	cout << input << endl;
+	//cout << input << endl;
 }
 

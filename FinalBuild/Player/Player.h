@@ -54,7 +54,6 @@ public:
 
 	//actions
 	void move(Map m);
-	//void move(int d); //replace this later
 	void flight(int a);
 	bool buildStation(Map* m);
 	bool treatDisease(Map m);

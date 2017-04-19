@@ -1,7 +1,18 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(937,5): warning MSB8027: Two or more files with the name of ReferenceCard.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Cards\ReferenceCard.cpp, Player\ReferenceCard.cpp.
+  stdafx.cpp
   main.cpp
 c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(106): warning C4018: '<': signed/unsigned mismatch
-c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(284): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\main.cpp(280): warning C4018: '<': signed/unsigned mismatch
+  Strat.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\strategy\strat.cpp(128): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\strategy\strat.cpp(176): warning C4018: '<': signed/unsigned mismatch
+  UserInputException.cpp
+  InfectionDeck.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\cards\infectiondeck.cpp(72): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\cards\infectiondeck.cpp(95): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  PlayerSaver.cpp
   Player.cpp
 c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(206): warning C4018: '<': signed/unsigned mismatch
 c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(214): warning C4018: '<': signed/unsigned mismatch
@@ -19,24 +30,38 @@ c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\play
 c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1111): warning C4018: '<': signed/unsigned mismatch
 c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1017): warning C4101: 'eventc': unreferenced local variable
 c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1018): warning C4101: 'matchingCardIndex': unreferenced local variable
-  EventCard.cpp
-  Generating Code...
-c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1134): warning C4715: 'Player::contingencyPlanner': not all control paths return a value
-c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1084): warning C4700: uninitialized local variable 'cardId' used
-c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1006): warning C4715: 'Player::useEventCard': not all control paths return a value
-  Skipping... (no relevant changes detected)
-  Strat.cpp
-  PlayerSaver.cpp
   Director.cpp
   PercentageObserver.cpp
   InfectionStatsObserver.cpp
   GameStatisticsObserver.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobserver.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobserver.cpp(36): warning C4018: '<': signed/unsigned mismatch
   GameStatisticsObservable.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobservable.cpp(19): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobservable.cpp(29): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobservable.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobservable.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\observers\gamestatisticsobservable.cpp(56): warning C4018: '<': signed/unsigned mismatch
   MapSaver.cpp
   Map.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\map\map.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\map\map.cpp(66): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\map\map.cpp(79): warning C4018: '<': signed/unsigned mismatch
   Role.cpp
-  InfectionDeck.cpp
   InfectionCard.cpp
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\cards\infectioncard.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\cards\infectioncard.cpp(66): warning C4018: '<': signed/unsigned mismatch
+  EventCard.cpp
   EpidemicCard.cpp
+  Generating Code...
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1006): warning C4715: 'Player::useEventCard': not all control paths return a value
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1134): warning C4715: 'Player::contingencyPlanner': not all control paths return a value
+c:\users\daniel\documents\visual studio 2017\projects\finalbuild\finalbuild\player\player.cpp(1084): warning C4700: uninitialized local variable 'cardId' used
+  Skipping... (no relevant changes detected)
+  ReferenceCard.cpp
+  ReferenceCard.cpp
+  Deck.cpp
+  CityCard.cpp
+  Card.cpp
   FinalBuild.vcxproj -> C:\Users\Daniel\Documents\Visual Studio 2017\Projects\FinalBuild\Debug\FinalBuild.exe
   FinalBuild.vcxproj -> C:\Users\Daniel\Documents\Visual Studio 2017\Projects\FinalBuild\Debug\FinalBuild.pdb (Partial PDB)

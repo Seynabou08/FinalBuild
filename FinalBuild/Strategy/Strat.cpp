@@ -18,7 +18,6 @@ void ActionEnvelope::setAct(int choice)
 {
 	switch(choice)
 	{
-
 		case 1:
 		{
 			this->act = new Drive();
@@ -98,7 +97,6 @@ bool DFlight::execute(Player* p1, vector<Player> players, Map* m, int d, Infecti
 					}
 
 					cout << "Which city do you want to move to" << endl;
-
 					int cardInt = -1;
 					while (cardInt == -1 || cardInt >= p1->getHandSize()) {
 						cin >> cardInt;
@@ -114,7 +112,6 @@ CFlight::CFlight(){}
 CFlight::~CFlight(){}
 bool CFlight::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {			
-
 					//check for matching card
 					bool hasMatchingCard = false;
 					int matchingCardIndex;
@@ -197,7 +194,6 @@ BuildResearch::BuildResearch(){}
 BuildResearch::~BuildResearch(){}
 bool BuildResearch::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-	p1->increaseAction();
 	return p1->buildStation(m);
 }
 
@@ -205,7 +201,6 @@ TreatDisease::TreatDisease(){}
 TreatDisease::~TreatDisease(){}
 bool TreatDisease::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-	p1->increaseAction();
 	return p1->treatDisease(*m);
 }	
 
@@ -214,7 +209,7 @@ ShareKnowledge::~ShareKnowledge(){}
 bool ShareKnowledge::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
 	int pc;
-	p1->increaseAction();
+	//p1->increaseAction();
 	cout << "Which player would you like to share knowledge with?" << endl;
 	cin >> pc;
 	if (pc<1 || pc>d)
@@ -229,7 +224,6 @@ DiscoverCure::DiscoverCure(){}
 DiscoverCure::~DiscoverCure(){}
 bool DiscoverCure::execute(Player* p1, vector<Player> players, Map* m, int d, InfectionDeck* ideck)
 {
-	p1->increaseAction();
 	return p1->discoverCure(*m);
 }
 

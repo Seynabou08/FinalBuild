@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	// Initializing the map 
 	Map newMap = Map(48);
 	newMap.startGame();
-	ShellExecute(NULL, NULL, L"C:\\Users\\Daniel\\Documents\\Visual Studio 2017\\Projects\\FinalBuild\\FinalBuild\\pandemicMap.jpg", NULL, NULL, SW_SHOWDEFAULT);
+	//ShellExecute(NULL, NULL, L"C:\\Users\\Daniel\\Documents\\Visual Studio 2017\\Projects\\FinalBuild\\FinalBuild\\pandemicMap.jpg", NULL, NULL, SW_SHOWDEFAULT);
 
 	//string fileName = "save.txt";
 	//ifstream* myfile;
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 	cout << "How many players are playing?" << endl;
 	int a = 0;
 	int playerNum;
-	while (a > 4 || a <= 0)
+	while (a > 4 || a <= 0) //try to enter player input
 	{
 		try {
 			cin >> a;
@@ -238,7 +238,7 @@ int main(int argc, char* argv[])
 				if (players.at(i).getRole() == "Dispatcher" || players.at(i).getRole() == "Operation Expert" ||
 					(players.at(i).getRole() == "Contingency Planner" && players.at(i).getEventCard().getType() == "Event Card"))
 				{
-					cout << "0. Role" << endl;
+					cout << "0. Role" << endl; //displayed if the players role is one with an active ability
 					hasActiveRole = true;
 				}
 				else
@@ -268,14 +268,10 @@ int main(int argc, char* argv[])
 					}
 				}
 
-				//char action = (char)actionInt;
-
 				if (action == 0) //if player choses to use his active role ability
 				{
 					if (players.at(i).getRole() == "Dispatcher")
-					{
 						players.at(i).dispatcherAbility(&players, &newMap, i);
-					}
 
 					if (players.at(i).getRole() == "Contingency Planner")
 					{
@@ -322,7 +318,7 @@ int main(int argc, char* argv[])
 					}
 				}
 
-				else //else all other choices are handled here
+				else //else all other choices are handled here by the strategy design pattern
 				{
 					playerMoves.setAct(action);
 					playerMoves.flow(&(players.at(i)), players, &newMap, playerNum, &ideck);
