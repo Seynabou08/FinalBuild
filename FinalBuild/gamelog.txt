@@ -1,0 +1,1244 @@
+Hello, World!
+CURES: 0, 0, 0, 0
+How many players do you want to play?
+you have selected 4
+INITIALIZING INFECTION DECK
+Player 1 is at Atlanta
+Player 2 is at Atlanta
+Player 3 is at Atlanta
+Player 4 is at Atlanta
+------------------PLAYER 1 TURN------------------
+Player 1 is at Atlanta
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 1 is at Algiers
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Istanbul
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Algiers
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You cannot take a charter flight as you do not have a card matching the city you are currently on
+Player 1 is at Algiers
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+------------------INFECTION TURN------------------
+Cubes remaining: 48, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 2 TURN------------------
+Player 2 is at Atlanta
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Chicago
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 2 is at New York
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Washington
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 46, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 3 TURN------------------
+Player 3 is at Atlanta
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Atlanta
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Washington
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 3 is at Milan
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Essen
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+(0) San Francisco
+(1) Los Angeles
+(2) Chicago
+(3) Mexico City
+(4) Lima
+(5) Santiago
+(6) Toronto
+(7) Atlanta
+(8) Miami
+(9) Bogota
+(10) New York
+(11) Washington
+(12) Sao Paulo
+(13) Buenos Aires
+(14) London
+(15) Paris
+(16) Madrid
+(17) Lagos
+(18) Kinshasa
+(19) Essen
+(20) Milan
+(21) Algiers
+(22) Khartoum
+(23) Johannesburg
+(24) St Petersburg
+(25) Istanbul
+(26) Cairo
+(27) Moscow
+(28) Baghdad
+(29) Riyadh
+(30) Tehran
+(31) Karachi
+(32) Delhi
+(33) Mumbai
+(34) Kolkata
+(35) Chennai
+(36) Beijing
+(37) Seoul
+(38) Shanghai
+(39) Hong Kong
+(40) Bangkok
+(41) Tokyo
+(42) Osaka
+(43) Taipei
+(44) Manila
+(45) Ho Chi Minh City
+(46) Jakarta
+(47) Sydney
+Choose a city to fly to
+------------------INFECTION TURN------------------
+Cubes remaining: 44, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 4 TURN------------------
+Player 4 is at Atlanta
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Washington
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at New York
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Madrid
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+------------------INFECTION TURN------------------
+Cubes remaining: 42, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 1 TURN------------------
+Player 1 is at Mumbai
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Chennai
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Mumbai
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Mumbai
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Chennai
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 40, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 2 TURN------------------
+Player 2 is at New York
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Madrid
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Madrid
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Algiers
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 2 is at Manila
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 38, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 3 TURN------------------
+Player 3 is at Osaka
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Tokyo
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 3 is at London
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at London
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Essen
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 36, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 4 TURN------------------
+Player 4 is at Baghdad
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 4 is at Paris
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Algiers
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Paris
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 4 is at Paris
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Paris
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 34, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 1 TURN------------------
+Player 1 is at Jakarta
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Chennai
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Kolkata
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Delhi
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 32, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 2 TURN------------------
+Player 2 is at Hong Kong
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Kolkata
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Bangkok
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Jakarta
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+------------------INFECTION TURN------------------
+Cubes remaining: 30, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 3 TURN------------------
+Player 3 is at St Petersburg
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Essen
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Paris
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 3 is at Hong Kong
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 28, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 4 TURN------------------
+Player 4 is at London
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at New York
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Toronto
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 4 is at Toronto
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Chicago
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 26, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 1 TURN------------------
+Player 1 is at Tehran
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 1 is at Ho Chi Minh City
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Hong Kong
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Kolkata
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 24, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 2 TURN------------------
+Player 2 is at Miami
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Washington
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at New York
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Which city do you want to move to
+Player 2 is at Lima
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 22, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 3 TURN------------------
+Player 3 is at Ho Chi Minh City
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Hong Kong
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 3 is at Hong Kong
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Kolkata
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Kolkata
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Delhi
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 20, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 4 TURN------------------
+Player 4 is at Atlanta
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You cannot take a charter flight as you do not have a card matching the city you are currently on
+Player 4 is at Atlanta
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 4 is at Atlanta
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Washington
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at New York
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Madrid
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 4 is at Madrid
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 19, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 1 TURN------------------
+Player 1 is at Delhi
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at Karachi
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+(0) San Francisco
+(1) Los Angeles
+(2) Chicago
+(3) Mexico City
+(4) Lima
+(5) Santiago
+(6) Toronto
+(7) Atlanta
+(8) Miami
+(9) Bogota
+(10) New York
+(11) Washington
+(12) Sao Paulo
+(13) Buenos Aires
+(14) London
+(15) Paris
+(16) Madrid
+(17) Lagos
+(18) Kinshasa
+(19) Essen
+(20) Milan
+(21) Algiers
+(22) Khartoum
+(23) Johannesburg
+(24) St Petersburg
+(25) Istanbul
+(26) Cairo
+(27) Moscow
+(28) Baghdad
+(29) Riyadh
+(30) Tehran
+(31) Karachi
+(32) Delhi
+(33) Mumbai
+(34) Kolkata
+(35) Chennai
+(36) Beijing
+(37) Seoul
+(38) Shanghai
+(39) Hong Kong
+(40) Bangkok
+(41) Tokyo
+(42) Osaka
+(43) Taipei
+(44) Manila
+(45) Ho Chi Minh City
+(46) Jakarta
+(47) Sydney
+Choose a city to fly to
+Player 1 is at Moscow
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 1 is at St Petersburg
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 1 is at St Petersburg
+Player 1: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 18, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 2 TURN------------------
+Player 2 is at Bogota
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Mexico City
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Chicago
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 2 is at Atlanta
+Player 2: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 16, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 3 TURN------------------
+Player 3 is at Karachi
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Mumbai
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Chennai
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 3 is at Jakarta
+Player 3: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 14, Outbreaks: 0, Marker position: 0(2)
+------------------PLAYER 4 TURN------------------
+Player 4 is at New York
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Madrid
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Madrid
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+You are out of city cards select another action.
+Player 4 is at Madrid
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Algiers
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+Player 4 is at Cairo
+Player 4: Choose your action...
+1. Drive/Ferry
+2. Direct Flight
+3. Charter Flight
+4. Shuttle Flight
+5. Build a Research Station
+6. Treat Disease
+7. Share Knowledge
+8. Discover a Cure
+9. Play event card
+------------------INFECTION TURN------------------
+Cubes remaining: 12, Outbreaks: 0, Marker position: 0(2)
